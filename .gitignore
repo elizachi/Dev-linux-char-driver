@@ -1,3 +1,14 @@
 *.o
 *.ko
 *.mod
+
+.Module.symvers.cmd
+.md_main.o.cmd
+.modules.order.cmd
+.my_device.ko.cmd
+.my_device.mod.cmd
+.my_device.mod.o.cmd
+.my_device.o.cmd
+Module.symvers
+modules.order
+my_device.mod.c
