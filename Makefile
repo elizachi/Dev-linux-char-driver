@@ -1,7 +1,7 @@
 MODULE_NAME := my_device
 
 obj-m := $(MODULE_NAME).o
-$(MODULE_NAME)-objs := md_main.o
+$(MODULE_NAME)-objs := md_main.o md_fops.o
 
 KDIR ?= /lib/modules/$(shell uname -r)/build
 PWD  := $(shell pwd)

@@ -12,3 +12,7 @@
 Module.symvers
 modules.order
 my_device.mod.c
+
+.md_fops.o.cmd
+md_fops.c
+md_internal.h
