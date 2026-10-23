@@ -14,3 +14,4 @@ modules.order
 my_device.mod.c
 
 .md_fops.o.cmd
+.md_ioctl.o.cmd

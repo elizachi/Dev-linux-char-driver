@@ -90,4 +90,5 @@ const struct file_operations md_fops = {
   .read    = md_read,
   .write   = md_write,
   .llseek  = default_llseek,
+  .unlocked_ioctl = md_ioctl,
 };
