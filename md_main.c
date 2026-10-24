@@ -43,10 +43,16 @@ static int __init mydev_init(void)
     goto err_class;
   }
 
+  ret = md_proc_init();
+  if (ret)
+    goto err_device;
+
   pr_info("my_device: registered, major=%d minor=%d\n",
     MAJOR(mdev.devno), MINOR(mdev.devno));
   return 0;
 
+err_device:
+  device_destroy(mdev.cls, mdev.devno);
 err_class:
   class_destroy(mdev.cls);
 err_cdev:
@@ -60,6 +66,7 @@ err_buf:
 
 static void __exit mydev_exit(void)
 {
+  md_proc_exit();
   device_destroy(mdev.cls, mdev.devno);
   class_destroy(mdev.cls);
   cdev_del(&mdev.cdev);
