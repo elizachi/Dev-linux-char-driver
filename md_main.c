@@ -47,10 +47,16 @@ static int __init mydev_init(void)
   if (ret)
     goto err_device;
 
+  ret = md_sysfs_init();
+  if (ret)
+    goto err_proc;
+
   pr_info("my_device: registered, major=%d minor=%d\n",
     MAJOR(mdev.devno), MINOR(mdev.devno));
   return 0;
 
+err_proc:
+  md_proc_exit();
 err_device:
   device_destroy(mdev.cls, mdev.devno);
 err_class:
@@ -66,6 +72,7 @@ err_buf:
 
 static void __exit mydev_exit(void)
 {
+  md_sysfs_exit();
   md_proc_exit();
   device_destroy(mdev.cls, mdev.devno);
   class_destroy(mdev.cls);
