@@ -17,3 +17,7 @@ my_device.mod.c
 .md_ioctl.o.cmd
 .md_proc.o.cmd
 .md_sysfs.o.cmd
+
+test/test_ioctl
+test/test_rw
+
